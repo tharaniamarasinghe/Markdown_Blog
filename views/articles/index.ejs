@@ -14,7 +14,7 @@
     <h1 class="mb-4">DT Blog Articles</h1> 
     <a href="/articles/new" class="btn btn-success">New Article</a>
 
-    <% articles.forEach(article => { %> <!--For each article display every detail-->
+    <% articles.forEach(article => { %>   <!--For each article display every detail-->
         <div class="card mt-4">           <!-- loop through articles and print this html-->  
         <div class="card-body">
          <h4 class="card-title"> <%= article.title %> </h4>
@@ -22,6 +22,10 @@
           <%= article.createdAt.toLocaleDateString() %> 
          </div>
          <div class="card-text mb-2"> <%= article.description %> </div>
+         <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+         <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+           <button type="submit" class="btn btn-danger">Delete</button>
+         </form>
         </div>           
       </div>
     <% }) %>
