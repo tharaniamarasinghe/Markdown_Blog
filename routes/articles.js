@@ -16,7 +16,7 @@ router.get('/:slug', async (req,res) => {
     if (article == null) res.redirect('/')  //redirect to homepage
     res.render('articles/show', {article: article})
 })
-
+/*
 router.post('/', async (req,res) => {  //handle post request
     let article = new Article({   //creating new article
         title: req.body.title,
@@ -32,7 +32,7 @@ router.post('/', async (req,res) => {  //handle post request
         res.render('articles/new', {article: article})
     }
 
-})
+})*/
 
 router.post('/', async (req, res, next) => {
     req.article = new Article()
